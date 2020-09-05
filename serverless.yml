@@ -1,0 +1,61 @@
+service: pose
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: dev
+  region: ap-south-1
+  timeout: 60
+  environment:
+    S3_BUCKET: mdpbucket
+    MODEL_PATH: simple_pose_estimation.quantized.onnx
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - s3:getObject
+      Resource: arn:aws:s3:::mdpbucket/simple_pose_estimation.quantized.onnx
+
+custom:
+  pythonRequirements: 
+    dockerizePip: true
+    zip: true
+    slim: true
+    strip: false
+    noDeploy:
+      - docutils
+      - jmespath
+      - pip
+      - python-dateutil
+      - setuptools
+      - six
+      - tensorboard
+    useStaticCache: true
+    useDownloadCache: true
+    cacheLocation: "./cache"
+
+
+package:
+  individually: false
+  exclude:
+    - package.json
+    - package-log.json
+    - node_modules/*
+    - cache/**
+    - test/**
+    - __pycache__/**
+    - pytest_cache/**
+    - model/**
+
+
+functions:
+  get_pose_estimation:
+    handler: handler.get_pose_estimation
+    memorySize: 3008
+    timeout: 60
+    events:
+      - http:
+          path: pose_estimation
+          method: post
+          cors: true
+plugins:
+  - serverless-python-requirements
