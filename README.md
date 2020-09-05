@@ -57,3 +57,30 @@ One is that we have two different kinds of human boxes, one is from a human dete
 ![res1](/res1.png)
 
 
+## AWS Lambda Deployment:
+
+We took the pytorch Human Pose Estimation model from Microsoft
+
+https://github.com/microsoft/human-pose-estimation.pytorch
+
+As the model is big:
+
+We first export the pytorch model to onnyx format and then further optimize by using quantization library and final model is 65.93 MB.
+
+This quantized onnyx model we deployed into AWS.
+
+Yet we are facing issue because of size of image. So we removed pytorch dependecy by writing transformation (resize, normalization) of  image using numpy and PIL library.
+
+## Result:
+
+We used the following image of Tom Hanks
+
+
+
+And output is as below:
+
+
+
+  
+
+
