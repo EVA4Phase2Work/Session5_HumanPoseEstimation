@@ -71,11 +71,9 @@ This quantized onnyx model we deployed into AWS.
 
 Yet we are facing issue because of size of image. So we removed pytorch dependecy by writing transformation (resize, normalization) of  image using numpy and PIL library.
 
-## Result:
+## Results:
 
-We used the following image of Tom Hanks
-
-![Tom Hanks](/TomHanks.jpg)
+We used the  image of Tom Hanks
 
 And output from Webpage is as follows:
 
