@@ -1,8 +1,19 @@
+# Human Pose Estimation
+
+## What is Pose Estimations
+
 Human Pose estimation is an important problem that has enjoyed the attention of the Computer Vision community for the past few decades. It is a crucial step towards understanding people in images and videos This is based on deconvolutional layers added on a ResNet. The model achieves an mAP of 73.7 on a COCO test-dev split. Its pose tracking model achieves an mAP score of 74.6 and a MOTA (Multiple Object Tracking Accuracy) score of 57.8. The authors are from Microsoft Research Asia and the University of Electronic Science and Technology of China.
 
 What is Human Pose Estimation? Human Pose Estimation is defined as the problem of localization of human joints (also known as keypoints - elbows, wrists, etc) in images or videos. It is also defined as the search for a specific pose in space of all articulated poses.
 
+
 2D Pose Estimation - Estimate a 2D pose (x,y) coordinates for each joint from a RGB image. 3D Pose Estimation - Estimate a 3D pose (x,y,z) coordinates a RGB image.
+
+
+![pose1](/2.png)
+![pose2](/3.png)
+
+## Challenges with Pose Estimations and Solutions
 
 Why is it hard? Strong articulations, small and barely visible joints, occlusions, clothing, and lighting changes make this a difficult problem.
 
@@ -32,7 +43,7 @@ It measures the detection rate of limbs. The con is that it penalizes shorter li
 
 PCKh@0.5 is when the threshold = 50% of the head bone link PCK@0.2 == Distance between predicted and true joint < 0.2 * torso diameter Sometimes 150 mm is taken as the threshold. Alleviates the shorter limb problem since shorter limbs have smaller torsos and head bone links. PCK is used for 2D and 3D (PCK3D). Again, the higher the better. Percentage of Detected Joints - PDJ: A detected joint is considered correct if the distance between the predicted and the true joint is within a certain fraction of the torso diameter. PDJ@0.2 = distance between predicted and true joint < 0.2 * torso diameter.
 
-Object Keypoint Similarity (OKS) based mAP:
+## Object Keypoint Similarity (OKS) based mAP:
 
 Commonly used in the COCO keypoints challenge. OKS is the Euclidean distance between the detected keypoint and the corresponding ground truth, To put it simply, OKS plays the same role that IoU plays in object detection. It is calculated from the distance between predicted points and ground truth points normalized by the scale of the person. More info Typically, standard average precision and recall scores are reported in papers:
 
