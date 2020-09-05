@@ -9,9 +9,7 @@ What is Human Pose Estimation? Human Pose Estimation is defined as the problem o
 
 2D Pose Estimation - Estimate a 2D pose (x,y) coordinates for each joint from a RGB image. 3D Pose Estimation - Estimate a 3D pose (x,y,z) coordinates a RGB image.
 
-
 ![pose1](/2.png)
-![pose2](/3.png)
 
 ## Challenges with Pose Estimations and Solutions
 
