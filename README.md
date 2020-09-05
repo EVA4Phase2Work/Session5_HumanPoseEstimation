@@ -75,9 +75,13 @@ Yet we are facing issue because of size of image. So we removed pytorch dependec
 
 We used the following image of Tom Hanks
 
+![Tom Hanks](/TomHanks.jpg)
+
+And output from Webpage is as follows:
+
+![Website](/website_human_pose.png)
 
 
-And output is as below:
 
 
 
